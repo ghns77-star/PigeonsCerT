@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="color-scheme" content="light dark">
+  <title>إدارة الحمام</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>🐦 إدارة الحمام وشجرة النسب</h1>
+    <button id="themeBtn" class="icon-btn" aria-label="تبديل السمة">🌙</button>
+  </header>
+
+  <main>
+    <!-- ======== سجل الفروخ ======== -->
+    <section id="tab-pigeons">
+      <div class="toolbar">
+        <div class="row">
+          <select id="searchField" aria-label="حقل البحث"></select>
+          <input id="searchInput" type="search" placeholder="🔍 قيمة البحث" autocomplete="off">
+        </div>
+        <div class="row">
+          <button id="advBtn" class="btn small teal">بحث متقدم</button>
+          <select id="sortField" aria-label="الترتيب"></select>
+          <button id="sortDir" class="btn small" aria-label="اتجاه الترتيب">▲</button>
+          <button id="selAllBtn" class="btn small">☑ الكل</button>
+          <button id="menuBtn" class="btn small" aria-label="المزيد">⋮</button>
+        </div>
+        <div id="filterBanner" class="banner" hidden>
+          <span id="filterText"></span>
+          <button id="filterClear" class="btn small">إلغاء البحث</button>
+        </div>
+        <div id="countLine" class="count"></div>
+      </div>
+      <div id="pigeonList" class="list"></div>
+    </section>
+
+    <!-- ======== العلاجات ======== -->
+    <section id="tab-treatments" hidden>
+      <div id="treatList" class="list"></div>
+    </section>
+  </main>
+
+  <button id="fab" class="fab" aria-label="إضافة">＋</button>
+
+  <div id="selbar" class="selbar" hidden>
+    <span id="selCount" class="selcount"></span>
+    <button data-act="edit">✏️ تعديل</button>
+    <button data-act="copy">📋 نسخ</button>
+    <button data-act="tree">🌳 النسب</button>
+    <button data-act="cert">🖨️ شهادة</button>
+    <button data-act="del" class="danger">🗑️ حذف</button>
+  </div>
+
+  <nav class="tabbar">
+    <button data-tab="pigeons" class="active">🐦 سجل الفروخ</button>
+    <button data-tab="treatments">💉 العلاجات</button>
+  </nav>
+
+  <div id="sheetRoot"></div>
+  <div id="toast" class="toast" role="status"></div>
+  <div id="busy" class="busy" hidden><div class="busy-box"><div class="spin"></div><div id="busyMsg"></div></div></div>
+  <input id="filePicker" type="file" hidden>
+
+  <script src="lib/html2canvas.min.js"></script>
+  <script src="lib/jspdf.umd.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
